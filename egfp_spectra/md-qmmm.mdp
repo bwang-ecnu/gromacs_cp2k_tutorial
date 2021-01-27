@@ -1,0 +1,63 @@
+integrator               = md-vv
+tinit                    = 0
+dt                       = 0.001
+nsteps                   = 100
+init_step                = 0
+comm-mode                = Linear
+nstcomm                  = 1
+
+nstxout                  = 1
+nstvout                  = 1
+nstfout                  = 1
+nstlog                   = 1
+nstcalcenergy            = 1
+nstenergy                = 1
+nstxout-compressed       = 1
+compressed-x-precision   = 1000
+compressed-x-grps        = System
+
+cutoff-scheme            = verlet
+nstlist                  = 1
+pbc                      = xyz
+periodic-molecules       = no
+verlet-buffer-tolerance  = 0.005
+rlist                    = 1.8
+
+coulombtype              = PME
+coulomb-modifier         = Potential-shift-Verlet
+rcoulomb-switch          = 1.5
+rcoulomb                 = 1.8
+vdwtype                  = Cut-off
+vdw-modifier             = Force-switch
+rvdw-switch              = 1.5
+rvdw                     = 1.8
+DispCorr                 = no
+
+tcoupl                  = V-rescale             ; modified Berendsen thermostat
+tc-grps                 = System
+tau_t                   = 0.1    ; time constant, in ps
+ref_t                   = 300    ; reference temperature, one for each group, in K
+
+pcoupl                  = no
+pcoupltype              = isotropic             ; uniform scaling of box vectors
+tau_p                   = 2.0                   ; time constant, in ps
+ref_p                   = 1.0                   ; reference pressure, in bar
+compressibility         = 4.5e-5                ; isothermal compressibility of water, bar^-1
+
+constraints              = h-bonds
+constraint-algorithm     = Lincs
+continuation             = yes
+
+
+; QM/MM with CP2K
+qmmm-active              = true
+; Index group with QM atoms
+qmmm-qmgroup             = QMatoms
+; DFT functional for QM calculations
+qmmm-qmmethod            = INPUT
+; QM input file name (for qmmm-qmmethod = INPUT)
+qmmm-qminputfile         = egfp-spec.inp
+; QM charge
+qmmm-qmcharge            = -1
+; QM multiplicity
+qmmm-qmmultiplicity      = 1

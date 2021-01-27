@@ -1,0 +1,24 @@
+; minim.mdp - used as input into grompp to generate em.tpr
+integrator	= steep		; Algorithm (steep = steepest descent minimization)
+emtol		= 10.0  	; Stop minimization when the maximum force < 1000.0 kJ/mol/nm
+emstep          = 0.01          ; Energy step size
+nsteps		= 5000	  	; Maximum number of (minimization) steps to perform
+
+nstxout                  = 1
+nstlog                   = 1
+nstcalcenergy            = 1
+nstenergy                = 1
+
+nstlist		    = 10   	    ; Frequency to update the neighbor list and long range forces
+cutoff-scheme       = Verlet
+coulombtype	    = PME		; Treatment of long range electrostatic interactions
+rcoulomb	    = 1.2		; Short-range electrostatic cut-off
+rvdw		    = 1.2		; Short-range Van der Waals cut-off
+pbc		    = xyz 		; Periodic Boundary Conditions
+
+; CP2K QMMM parameters
+qmmm-active              = true
+qmmm-qmgroup             = QMatoms
+qmmm-qmmethod            = PBE
+qmmm-qmcharge            = 0
+qmmm-qmmultiplicity      = 1

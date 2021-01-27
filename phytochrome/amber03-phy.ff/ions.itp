@@ -1,0 +1,27 @@
+#ifndef _MYIONS
+#define _MYIONS
+
+; *** Parameters for Amber Ions ***
+; *** Maik Goette 11/05         ***
+
+;#include "waterionsnb.itp"
+
+[ moleculetype ]
+; molname	nrexcl
+Na		1
+
+[ atoms ]
+; id	at type	res nr 	residu name	at name	 cg nr	charge     mass
+1	amber99_31	1	Na		Na	 1	1.00      22.99000
+
+[ moleculetype ]
+; molname	nrexcl
+Cl		1
+
+[ atoms ]
+; id	at type	res nr 	residu name	at name	 cg nr	charge     mass
+1	amber99_30	1	Cl		Cl	 1	-1.00      35.45000
+
+#endif
+ 
+
