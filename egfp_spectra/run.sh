@@ -1,12 +1,11 @@
 #!/bin/bash
 #SBATCH -J egfp_spec
-#SBATCH -t 00:30:00
+#SBATCH -t 00:15:00
 #SBATCH --ntasks-per-node=32
 #SBATCH --cpus-per-task=4
 #SBATCH --nodes=1
-#SBATCH --partition=test
-#SBATCH --account=project_
-#SBATCH --reservation=gromacs
+#SBATCH --account=project_2000745
+#SBATCH --reservation=gmx1
 
 module purge
 module load cp2k/8.1-gmx
