@@ -4,7 +4,7 @@
 #SBATCH --ntasks-per-node=32
 #SBATCH --cpus-per-task=4
 #SBATCH --nodes=1
-#SBATCH --account=project_2000745
+#SBATCH --account=project_2003487
 #SBATCH --reservation=gmx1
 
 module purge
